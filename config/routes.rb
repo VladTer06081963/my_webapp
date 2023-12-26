@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  # get '/questions', to: 'questions#index'
-
-  # get '/question/new', to: 'questions#new'
-  
-  resources :questions
+  resources :questions do
+    resources :answers, only: %i[create]
+  end
+    
   root "pages#index"
 end
 
