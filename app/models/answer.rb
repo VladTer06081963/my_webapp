@@ -1,5 +1,9 @@
 class Answer < ApplicationRecord
   belongs_to :question
 
-  # validates :body, presence: true, length: {minimum: 2}
+  validates :body, presence: true, length: {minimum: 2}
+
+  def formatted_created_at
+    created_at.strftime('%Y-%m-%d %H:%M:%S') if created_at.present?
+  end  
 end
